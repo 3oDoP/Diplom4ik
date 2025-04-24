@@ -1,0 +1,13 @@
+services:
+   - type: web
+     name: diplom4ik
+     runtime: python
+     buildCommand: "pip install -r requirements.txt"
+     startCommand: "gunicorn config.wsgi:application"
+     envVars:
+       - key: DJANGO_SETTINGS_MODULE
+         value: config.settings
+       - key: DEBUG
+         value: False
+       - key: SECRET_KEY
+         generateValue: true
